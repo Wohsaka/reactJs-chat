@@ -1,0 +1,107 @@
+.dark-html {
+    background-color: $color-5;
+}
+
+.dark-bd {
+    background-color: $color-5;
+    color: $color-1;
+
+    .profile-link {
+        background-color: lighten($color-5, 5);
+
+        img {
+            border-color: #ff6b6bb7;
+        }
+
+        .profile-default-avatar {
+            color: $color-4;
+        }
+    }
+
+    .profile {
+        background-color: $color-5;
+
+        .profile-default-avatar {
+            color: $color-4;
+        }
+        .username {
+            background-color: $color-5;
+            color: $color-1;
+        }
+
+        .edit-username, .save {
+            background-color: $color-4;
+
+            &:hover {
+                background-color: $color-3;
+            }
+        }
+
+        hr {
+            border-color: $color-4;
+        }
+
+        .bio {
+            color: $color-1;
+            background-color: lighten($color-5, 10);
+            border-color: $color-4;
+        }
+
+        .back-div {
+            background-color: lighten($color-5, 10);
+
+            .back-arrow {
+                background-color: $color-4;
+                color: $color-1;
+                box-shadow: 0 0 5px $color-4;
+            }
+        }
+    }
+
+    .chat::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 3px;
+    }
+
+    hr {
+        border-color: $color-1;
+    }
+
+    .chat-container {
+        background-color: $color-5;
+    }
+
+    .chat {
+        background-color: lighten($color-5, 5);
+        border-color: #ff6b6bb7;
+        
+        .message .avatar-div .message-avatar {
+            border-color: #ff6b6bb7;
+        }
+
+        .message .avatar-div .chat-default-avatar {
+            color: $color-4;
+        }
+
+        .message .message-text {
+            background-color: lighten($color-5, 15);
+        }
+    }
+
+    .send-div {
+        background-color: lighten($color-5, 10);
+
+        .message-input {
+            background-color: lighten($color-5, 10);
+            color: $color-1;
+            
+            &::placeholder {
+                color: lighten($color-5, 40);
+            }
+        }
+
+        .send-btn {
+            color: $color-4;
+        }
+    }
+}

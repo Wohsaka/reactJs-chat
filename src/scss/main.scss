@@ -1,0 +1,556 @@
+@import 'config';
+@import 'dark';
+
+body {
+    color: $color-5;
+    background-color: $color-1;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.5s ease-in-out;
+}
+
+hr {
+    border: $color-5 solid 1px;
+    transition: border-color 0.5s ease-in-out;
+}
+
+.up-in-container{
+    background-color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20vh;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    right: 0vw;
+    transition: left, right, 0.7s ease-in-out,
+                color 0.5s ease-in-out;
+
+    h4 {
+        margin-top: 1rem;
+    }
+
+    form {
+        margin-top: 0.5rem;
+        width: 70%;
+
+        @include media-md {
+            width: 30%;
+        }
+
+        input {
+            width: 100%;
+            height: 2rem;
+            margin-bottom: 0.5rem;
+            border: solid slategrey 1px;
+            border-radius: 15px;
+            outline: none;
+            font-size: 1.1rem;
+            padding-left: 1rem;
+
+            &:focus {
+                box-shadow: 0 0 5px rgb(70, 163, 250);
+            }
+        }
+
+        .info {
+            color: slategrey;
+            font-size: 0.8rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        button {
+            background-color: $color-2;
+            color: $color-1;
+            border: none;
+            border-radius: 15px;
+            padding: 0.25rem 0.5rem;
+            width: 50%;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            transition: all ease-in-out 0.5s;
+
+            &:hover {
+                background-color: $color-4;
+                cursor: pointer;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        hr {
+            width: 80%;
+            margin: auto;
+            border-radius: 50%;
+        }
+    }
+
+    h5 {
+        margin-top: 0.5rem;
+    }
+
+    span {
+        color: $color-2;
+    }
+
+    span.switch {
+        transition: color ease-in-out 0.5s;
+
+        &:hover {
+            cursor: pointer;
+            color: $color-4;
+        }
+    }
+}
+
+.right {
+    top: 0;
+    right: -100vw;
+}
+
+.left {
+    top: 0;
+    right: 100vw;
+}
+
+.chat::-webkit-scrollbar {
+    width: 5px;
+}
+
+.chat::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.219);
+    border-radius: 3px;
+    transition: all 5s ease-in-out;
+}
+
+.chat::-webkit-scrollbar-track-piece:end {
+    margin-bottom: 5px;
+}
+
+.chat::-webkit-scrollbar-track-piece:start {
+    margin-top: 5px;
+}
+
+.chat-container {
+    background-color: $color-2;
+    padding: 1.1rem 0;
+    height: 100vh;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.chat {
+    background-color: $color-1;
+    width: 80%;
+    height: 75vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    margin-left: 10%;
+    border-radius: 10px;
+    border: rgb(62, 190, 250) solid 2px;
+    padding: 0% 3%;
+    transition: background-color 0.5s ease-in-out;
+
+    @include media-md {
+        width: 40%;
+        margin-left: 30%;
+    }
+
+    .message {
+        display: grid;
+        grid-template-columns: 20% 75%;
+        margin: 1rem 0;
+
+        @include media-md {
+            grid-template-columns: 17% 80%;
+        }
+
+        .avatar-div {      
+            position: relative;
+            
+            .message-avatar {
+                border: rgba(62, 190, 250, 0.699) solid 2px;
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                position: absolute;
+                bottom: -1rem;
+                transition: border-color 0.5s ease-in-out;
+
+                @include media-md {
+                    width: 60px;
+                    height: 60px;
+                    bottom: -1.5rem;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .chat-default-avatar {
+                font-size: 2.8rem;
+                color: $color-2;
+                transition: background-color 0.5s ease-in-out;
+                position: absolute;
+                bottom: -1rem;
+
+                @include media-md {
+                    width: 60px;
+                    height: 60px;
+                    bottom: -1.5rem;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        &-text {
+            padding: 0.8rem;
+            background-color: rgba(208, 223, 245, 0.678);
+            border-radius: 15px 15px 15px 0;
+            transition: background-color 0.5s ease-in-out;
+
+            h5 {
+                font-size: 0.9rem;
+                margin-bottom: 0.1rem;
+            }
+
+            p {
+                margin-bottom: 0rem;
+            }
+
+            p.timestamp {
+                text-align: end;
+                font-size: 0.8rem;
+            }
+        }
+    }
+
+    .loading {
+        text-align: center;
+        margin-top: 50%;
+    }
+}
+
+.send-div {
+    margin-left: 10%;
+    width: 80%;
+    background-color: $color-1;
+    border-radius: 10px;
+    border: rgba(0, 0, 0, 0) solid 2px;
+    margin-top: 0.5rem;
+    height: 2.3rem;
+    padding: 0.3rem;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.308);
+    transition: all 0.5s ease-in-out;
+
+    @include media-md {
+        width: 40%;
+        margin-left: 30%;
+    }
+
+    &:hover {
+        border: $color-4 solid 2px;
+    }
+
+    .message-input {
+        width: 100%;
+        justify-self: center;
+        border: none;
+        transition: background-color 0.5s ease-in-out;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .send-btn {
+        font-size: 1.5rem;
+        justify-self: end;
+        color: $color-2;
+        transform: rotate(15deg);
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+            color: $color-4;
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+    }
+}
+
+.profile {
+    background-color: $color-1;
+    height: 100vh;
+    padding: 1rem;
+    transition: background-color 0.5s ease-in-out;
+
+    @include media-md {
+        padding: 1rem 34.5%;
+    }
+
+    .profile-avatar {
+        width: 100%;
+        height: 40vh;
+        border-radius: 5%;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.356);
+        margin-top: 2rem;
+
+        @include media-md {
+            width: 80%;
+            margin-left: 10%;
+        }
+    }
+
+    .profile-default-avatar {
+        color: $color-2;
+        font-size: 6rem;
+        width: 100%;
+        margin-top: 2rem;
+        transition: color 0.5s ease-in-out;
+    }
+
+    .username {
+        font-size: 2rem;
+        border: none;
+        background-color: $color-1;
+        pointer-events: none;
+        width: 80%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-right: 10%;
+        transition: all 0.5s ease-in-out;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .edit-username {
+        font-size: 2rem;
+        color: $color-1;
+        border-radius: 50%;
+        background-color: $color-2;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.171);
+        padding: 0.3rem;
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+            background-color: $color-4;
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+    }
+
+    .save {
+        font-size: 2rem;
+        color: $color-1;
+        border-radius: 50%;
+        background-color: $color-2;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.171);
+        padding: 0.3rem;
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+            background-color: $color-4;
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+    }
+
+    hr {
+        width: 85%;
+        margin: auto;
+        border-color: #a9f0eb;
+        border-radius: 50%;
+    }
+
+    h4 {
+        transition: all 0.5s ease-in-out;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .bio {
+        width: 80%;
+        margin-right: 10%;
+        height: 4rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+        border-radius: 5px;
+        padding: 0.3rem 0.5rem;
+        resize: none;
+        border: $color-2 solid 1px;
+        transition: all 0.5s ease-in-out;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .avatar-input {
+        display: none;
+    }
+
+    .back-div {
+        background-color: $color-2;
+        height: 2.2rem;
+        display: flex;
+        align-items: center;
+        padding-left: 1rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transition: background-color 0.5s ease-in-out;
+
+        .back-arrow {
+            color: $color-2;
+            background-color: $color-1;
+            font-size: 1.7rem;
+            transition: all ease-in-out 0.5s;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.808);
+            padding: 0.2rem;
+
+            &:hover {
+                color: $color-4;
+                transform: scale(1.1);
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.profile-link {
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 1rem;
+    background-color: $color-1;
+    border-radius: 10px;
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.308);
+    transition: background-color 0.5s ease-in-out;
+
+    @include media-md {
+        width: 40%;
+        margin-left: 30%;
+        grid-template-columns: 20% 80%;
+    }
+
+    img {
+        border-radius: 50%;
+        width: 65px;
+        height: 65px;
+        border: rgba(62, 190, 250, 0.699) solid 2px;
+        transition: border-color 0.5s ease-in-out;
+
+        @include media-md {
+            margin-left: 2rem;
+        }
+    }
+
+    .profile-default-avatar {
+        font-size: 4rem;
+        color: $color-2;
+        transition: color 0.5s ease-in-out;
+    }
+
+    &-info {
+        padding-top: 0.5rem;
+        position: relative;
+
+        @include media-md {
+            padding-left: 1rem;
+        }
+
+        h6 {
+            color: rgba(156, 161, 167, 0.692);
+        }
+
+        h5 {
+            margin-top: 1rem;
+            color: $color-4;
+            display: inline;
+            position: absolute;
+            right: 0;
+            bottom: 0.1rem;
+            transition: all ease-in-out 0.5s;
+
+            &:hover {
+                color: $color-2;
+                transform: scale(1.05);
+                cursor: pointer;
+            }
+
+            svg {
+                font-size: 1.1rem;
+                position: relative;
+                top: 4px;
+                right: 2px;
+            }
+        }
+    }
+}
+
+.loading-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.350);
+
+    .loading {
+        background-color: $color-1;
+        width: 45%;
+        margin: auto;
+        margin-top: 35vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 6rem;
+        border-radius: 3px;
+        
+        h2 {
+            animation: 2s ease-in-out infinite loading;
+        }
+    }
+}
+
+.theme-switch {
+    position: fixed;
+    right: 0.5rem;
+    top: 0.5rem;
+    z-index: 10;
+    transition: all 0.5s ease-in-out;
+}
+
+.sun {
+    color: $color-3;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.moon {
+    color: $color-5;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.hide {
+    right: -1rem;
+}
